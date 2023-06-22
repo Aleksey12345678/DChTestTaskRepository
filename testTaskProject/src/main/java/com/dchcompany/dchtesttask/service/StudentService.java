@@ -1,0 +1,71 @@
+package com.dchcompany.dchtesttask.service;
+
+import com.dchcompany.dchtesttask.dto.StudentCreateEditDto;
+import com.dchcompany.dchtesttask.dto.StudentReadDto;
+import com.dchcompany.dchtesttask.entity.Student;
+import com.dchcompany.dchtesttask.mapper.StudentCreateEditMapper;
+import com.dchcompany.dchtesttask.mapper.StudentReadMapper;
+import com.dchcompany.dchtesttask.repository.StudentRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@RequiredArgsConstructor
+@Transactional(readOnly = true)
+public class StudentService {
+    private final StudentRepository studentRepository;
+    private final StudentReadMapper  studentReadMapper;
+    private final StudentCreateEditMapper studentCreateEditMapper;
+
+    public List<StudentReadDto> findAll(){
+        return studentRepository.findAll().stream()
+                .map(studentReadMapper::map)
+                .toList();
+    }
+    public List<StudentReadDto> findAllByUniversity(Pageable pageable, String name){
+        return studentRepository.findAllByUniversity(pageable, name).stream()
+                .map(studentReadMapper::map)
+                .toList();
+    }
+    public List<StudentReadDto> findAllByLecture(Pageable pageable, String name){
+        return studentRepository.findAllByLecture(pageable, name).stream()
+                .map(studentReadMapper::map)
+                .toList();
+    }
+
+    public Optional<StudentReadDto > findById(Long id){
+        return studentRepository.findFirstById(id)
+                .map(studentReadMapper::map);
+    }
+    @Transactional
+    public StudentReadDto create(StudentCreateEditDto studentDto){
+        return Optional.of(studentDto)
+                .map(dto->studentCreateEditMapper.map(dto))
+                .map(studentRepository::save)
+                .map(studentReadMapper::map)
+                .orElseThrow();
+    }
+    @Transactional
+    public Optional<StudentReadDto> update(Long id, StudentCreateEditDto studentDto ){
+        return studentRepository.findById(id)
+                .map(entity-> studentCreateEditMapper.map(studentDto, entity))
+                .map(studentRepository::saveAndFlush)
+                .map(studentReadMapper::map);
+    }
+    @Transactional
+    public boolean delete(Long id){
+        return studentRepository.findById(id)
+                .map(entity->{
+                    studentRepository.delete(entity);
+                            studentRepository.flush();
+                            return true;
+                })
+                .orElse(false);
+    }
+}
