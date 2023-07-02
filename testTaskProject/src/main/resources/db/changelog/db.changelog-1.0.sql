@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS lecture
 CREATE TABLE IF NOT EXISTS students_lecture
 (
     id BIGSERIAL PRIMARY KEY ,
-    student_id BIGINT NOT NULL REFERENCES students (id),
+    student_id BIGINT NOT NULL REFERENCES students (id) on delete CASCADE ,
     lecture_id BIGINT NOT NULL REFERENCES lecture (id),
     UNIQUE (student_id, lecture_id)
 );

@@ -1,11 +1,8 @@
 package com.dchcompany.dchtesttask.controller;
 
-import com.dchcompany.dchtesttask.dto.StudentCreateEditDto;
-import com.dchcompany.dchtesttask.dto.StudentReadDto;
 import com.dchcompany.dchtesttask.dto.UniversityCreateEditDto;
 import com.dchcompany.dchtesttask.dto.UniversityReadDto;
-import com.dchcompany.dchtesttask.service.StudentService;
-import com.dchcompany.dchtesttask.service.UniversityService;
+import com.dchcompany.dchtesttask.serviceFacade.UniversityServiceFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -24,33 +21,33 @@ import static org.springframework.http.ResponseEntity.notFound;
 @RequestMapping("/api/v1/universities")
 @RequiredArgsConstructor
 public class UniversityRestController {
-    private final UniversityService universityService;
+    private final UniversityServiceFacade universityServiceFacade;
 
     @GetMapping
     public List<UniversityReadDto> findAll() {
-        return universityService.findAll();
+        return universityServiceFacade.findAll();
     }
 
     @GetMapping("/{id}")
     public UniversityReadDto findById(@PathVariable("id") Long id){
-        return universityService.findById(id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return universityServiceFacade.findById(id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public UniversityReadDto create(@Validated @RequestBody UniversityCreateEditDto university){
-        return universityService.create(university);
+        return universityServiceFacade.create(university);
     }
 
 
 
     @PutMapping("/{id}")
     public UniversityReadDto update(@PathVariable("id") Long id, @Validated @RequestBody UniversityCreateEditDto university){
-        return  universityService.update(id,university)
+        return  universityServiceFacade.update(id,university)
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable("id")Long id){
-        return  universityService.delete(id)
+        return  universityServiceFacade.delete(id)
                 ?noContent().build()
                 :notFound().build();
     }
