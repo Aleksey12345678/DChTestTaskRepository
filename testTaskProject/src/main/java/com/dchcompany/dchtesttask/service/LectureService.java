@@ -20,22 +20,25 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class LectureService {
+public class LectureService implements  ILectureService {
     private final LectureRepository lectureRepository;
     private final LectureReadMapper lectureReadMapper;
     private final LectureCreateEditMapper lectureCreateEditMapper;
 
+    @Override
     public List<LectureReadDto> findAll() {
         return lectureRepository.findAll().stream()
                 .map(lectureReadMapper::map)
                 .toList();
     }
 
+    @Override
     public Optional<LectureReadDto> findById(Long id) {
         return lectureRepository.findFirstById(id)
                 .map(lectureReadMapper::map);
     }
 
+    @Override
     @Transactional
     public LectureReadDto create(LectureCreateEditDto lectureDto) {
         return Optional.of(lectureDto)
@@ -45,6 +48,7 @@ public class LectureService {
                 .orElseThrow();
     }
 
+    @Override
     @Transactional
     public Optional<LectureReadDto> update(Long id, LectureCreateEditDto lectureDto) {
         return lectureRepository.findById(id)
@@ -53,6 +57,7 @@ public class LectureService {
                 .map(lectureReadMapper::map);
     }
 
+    @Override
     @Transactional
     public boolean delete(Long id) {
         return lectureRepository.findById(id)

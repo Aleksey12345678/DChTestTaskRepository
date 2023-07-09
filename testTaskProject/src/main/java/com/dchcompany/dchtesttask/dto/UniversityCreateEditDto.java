@@ -1,6 +1,6 @@
 package com.dchcompany.dchtesttask.dto;
 
-import jakarta.persistence.Column;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 import lombok.Value;

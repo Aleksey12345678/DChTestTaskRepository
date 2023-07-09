@@ -2,6 +2,7 @@ package com.dchcompany.dchtesttask.controller;
 
 import com.dchcompany.dchtesttask.dto.LectureCreateEditDto;
 import com.dchcompany.dchtesttask.dto.LectureReadDto;
+import com.dchcompany.dchtesttask.serviceFacade.ILectureServiceFacade;
 import com.dchcompany.dchtesttask.serviceFacade.LectureServiceFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,7 @@ import static org.springframework.http.ResponseEntity.notFound;
 @RequestMapping("/api/v1/lectures")
 @RequiredArgsConstructor
 public class LectureRestController {
-    private final LectureServiceFacade lectureServiceFacade;
+    private final ILectureServiceFacade lectureServiceFacade;
 
     @GetMapping
     public List<LectureReadDto> findAll() {

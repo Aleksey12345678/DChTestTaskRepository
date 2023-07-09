@@ -20,20 +20,23 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class UniversityService {
+public class UniversityService implements IUniversityService {
     private final UniversityRepository universityRepository;
     private final UniversityReadMapper universityReadMapper;
     private final UniversityCreateEditMapper universityCreateEditMapper;
 
+    @Override
     public List<UniversityReadDto> findAll(){
         return universityRepository.findAll().stream()
                 .map(universityReadMapper::map)
                 .toList();
     }
+    @Override
     public Optional<UniversityReadDto > findById(Long id){
         return universityRepository.findFirstById(id)
                 .map(universityReadMapper::map);
     }
+    @Override
     @Transactional
     public UniversityReadDto create(UniversityCreateEditDto universityDto){
         return Optional.of(universityDto)
@@ -42,13 +45,15 @@ public class UniversityService {
                 .map(universityReadMapper::map)
                 .orElseThrow();
     }
+    @Override
     @Transactional
-    public Optional<UniversityReadDto> update(Long id, UniversityCreateEditDto universityDto ){
+    public Optional<UniversityReadDto> update(Long id, UniversityCreateEditDto universityDto){
         return universityRepository.findById(id)
                 .map(entity-> universityCreateEditMapper.map(universityDto, entity))
                 .map(universityRepository::saveAndFlush)
                 .map(universityReadMapper::map);
     }
+    @Override
     @Transactional
     public boolean delete(Long id){
         return universityRepository.findById(id)

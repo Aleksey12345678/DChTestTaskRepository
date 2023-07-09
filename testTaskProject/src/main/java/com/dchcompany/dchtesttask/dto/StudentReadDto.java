@@ -3,7 +3,7 @@ package com.dchcompany.dchtesttask.dto;
 import com.dchcompany.dchtesttask.entity.Course;
 import com.dchcompany.dchtesttask.entity.StudentsLecture;
 import com.dchcompany.dchtesttask.entity.University;
-import jakarta.persistence.*;
+
 import lombok.Builder;
 import lombok.Value;
 

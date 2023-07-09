@@ -2,6 +2,7 @@ package com.dchcompany.dchtesttask.controller;
 
 import com.dchcompany.dchtesttask.dto.StudentCreateEditDto;
 import com.dchcompany.dchtesttask.dto.StudentReadDto;
+import com.dchcompany.dchtesttask.serviceFacade.IStudentServiceFacade;
 import com.dchcompany.dchtesttask.serviceFacade.StudentServiceFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
@@ -24,7 +25,7 @@ import static org.springframework.http.ResponseEntity.notFound;
 @RequiredArgsConstructor
 public class StudentRestController {
 
-    private final StudentServiceFacade studentServiceFacade;
+    private final IStudentServiceFacade studentServiceFacade;
 
 
     @GetMapping

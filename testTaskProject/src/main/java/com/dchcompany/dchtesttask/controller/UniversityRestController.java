@@ -2,7 +2,7 @@ package com.dchcompany.dchtesttask.controller;
 
 import com.dchcompany.dchtesttask.dto.UniversityCreateEditDto;
 import com.dchcompany.dchtesttask.dto.UniversityReadDto;
-import com.dchcompany.dchtesttask.serviceFacade.UniversityServiceFacade;
+import com.dchcompany.dchtesttask.serviceFacade.IUniversityServiceFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,7 +21,7 @@ import static org.springframework.http.ResponseEntity.notFound;
 @RequestMapping("/api/v1/universities")
 @RequiredArgsConstructor
 public class UniversityRestController {
-    private final UniversityServiceFacade universityServiceFacade;
+    private final IUniversityServiceFacade universityServiceFacade;
 
     @GetMapping
     public List<UniversityReadDto> findAll() {

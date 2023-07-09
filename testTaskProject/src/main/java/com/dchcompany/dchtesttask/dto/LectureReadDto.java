@@ -1,6 +1,6 @@
 package com.dchcompany.dchtesttask.dto;
 
-import jakarta.persistence.Id;
+
 import lombok.Value;
 
 @Value
