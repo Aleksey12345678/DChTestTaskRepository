@@ -2,8 +2,7 @@ package com.dchcompany.dchtesttask.controller;
 
 import com.dchcompany.dchtesttask.dto.LectureCreateEditDto;
 import com.dchcompany.dchtesttask.dto.LectureReadDto;
-import com.dchcompany.dchtesttask.serviceFacade.ILectureServiceFacade;
-import com.dchcompany.dchtesttask.serviceFacade.LectureServiceFacade;
+import com.dchcompany.dchtesttask.serviceFacade.facadeInterface.ILectureServiceFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

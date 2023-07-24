@@ -2,14 +2,10 @@ package com.dchcompany.dchtesttask.serviceFacade;
 
 import com.dchcompany.dchtesttask.dto.UniversityCreateEditDto;
 import com.dchcompany.dchtesttask.dto.UniversityReadDto;
-import com.dchcompany.dchtesttask.mapper.UniversityCreateEditMapper;
-import com.dchcompany.dchtesttask.mapper.UniversityReadMapper;
-import com.dchcompany.dchtesttask.repository.UniversityRepository;
-import com.dchcompany.dchtesttask.service.IUniversityService;
-import com.dchcompany.dchtesttask.service.UniversityService;
+import com.dchcompany.dchtesttask.service.serviceInterface.IUniversityService;
+import com.dchcompany.dchtesttask.serviceFacade.facadeInterface.IUniversityServiceFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;

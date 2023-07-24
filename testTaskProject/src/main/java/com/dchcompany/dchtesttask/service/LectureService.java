@@ -2,14 +2,10 @@ package com.dchcompany.dchtesttask.service;
 
 import com.dchcompany.dchtesttask.dto.LectureCreateEditDto;
 import com.dchcompany.dchtesttask.dto.LectureReadDto;
-import com.dchcompany.dchtesttask.dto.UniversityCreateEditDto;
-import com.dchcompany.dchtesttask.dto.UniversityReadDto;
 import com.dchcompany.dchtesttask.mapper.LectureCreateEditMapper;
 import com.dchcompany.dchtesttask.mapper.LectureReadMapper;
-import com.dchcompany.dchtesttask.mapper.UniversityCreateEditMapper;
-import com.dchcompany.dchtesttask.mapper.UniversityReadMapper;
 import com.dchcompany.dchtesttask.repository.LectureRepository;
-import com.dchcompany.dchtesttask.repository.UniversityRepository;
+import com.dchcompany.dchtesttask.service.serviceInterface.ILectureService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +16,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class LectureService implements  ILectureService {
+public class LectureService implements ILectureService {
     private final LectureRepository lectureRepository;
     private final LectureReadMapper lectureReadMapper;
     private final LectureCreateEditMapper lectureCreateEditMapper;

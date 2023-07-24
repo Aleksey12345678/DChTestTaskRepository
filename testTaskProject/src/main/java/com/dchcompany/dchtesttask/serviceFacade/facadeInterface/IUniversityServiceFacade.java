@@ -1,4 +1,4 @@
-package com.dchcompany.dchtesttask.serviceFacade;
+package com.dchcompany.dchtesttask.serviceFacade.facadeInterface;
 
 import com.dchcompany.dchtesttask.dto.UniversityCreateEditDto;
 import com.dchcompany.dchtesttask.dto.UniversityReadDto;

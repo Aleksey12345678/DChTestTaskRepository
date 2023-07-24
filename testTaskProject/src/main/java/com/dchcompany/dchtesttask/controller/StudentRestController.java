@@ -2,8 +2,7 @@ package com.dchcompany.dchtesttask.controller;
 
 import com.dchcompany.dchtesttask.dto.StudentCreateEditDto;
 import com.dchcompany.dchtesttask.dto.StudentReadDto;
-import com.dchcompany.dchtesttask.serviceFacade.IStudentServiceFacade;
-import com.dchcompany.dchtesttask.serviceFacade.StudentServiceFacade;
+import com.dchcompany.dchtesttask.serviceFacade.facadeInterface.IStudentServiceFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;

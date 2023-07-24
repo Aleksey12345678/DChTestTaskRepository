@@ -2,8 +2,8 @@ package com.dchcompany.dchtesttask.serviceFacade;
 
 import com.dchcompany.dchtesttask.dto.LectureCreateEditDto;
 import com.dchcompany.dchtesttask.dto.LectureReadDto;
-import com.dchcompany.dchtesttask.service.ILectureService;
-import com.dchcompany.dchtesttask.service.LectureService;
+import com.dchcompany.dchtesttask.service.serviceInterface.ILectureService;
+import com.dchcompany.dchtesttask.serviceFacade.facadeInterface.ILectureServiceFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

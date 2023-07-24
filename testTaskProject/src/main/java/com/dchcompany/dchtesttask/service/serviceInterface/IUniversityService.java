@@ -1,4 +1,4 @@
-package com.dchcompany.dchtesttask.service;
+package com.dchcompany.dchtesttask.service.serviceInterface;
 
 import com.dchcompany.dchtesttask.dto.UniversityCreateEditDto;
 import com.dchcompany.dchtesttask.dto.UniversityReadDto;

@@ -1,15 +1,11 @@
 package com.dchcompany.dchtesttask.service;
 
-import com.dchcompany.dchtesttask.dto.StudentCreateEditDto;
-import com.dchcompany.dchtesttask.dto.StudentReadDto;
 import com.dchcompany.dchtesttask.dto.UniversityCreateEditDto;
 import com.dchcompany.dchtesttask.dto.UniversityReadDto;
-import com.dchcompany.dchtesttask.mapper.StudentCreateEditMapper;
-import com.dchcompany.dchtesttask.mapper.StudentReadMapper;
 import com.dchcompany.dchtesttask.mapper.UniversityCreateEditMapper;
 import com.dchcompany.dchtesttask.mapper.UniversityReadMapper;
-import com.dchcompany.dchtesttask.repository.StudentRepository;
 import com.dchcompany.dchtesttask.repository.UniversityRepository;
+import com.dchcompany.dchtesttask.service.serviceInterface.IUniversityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

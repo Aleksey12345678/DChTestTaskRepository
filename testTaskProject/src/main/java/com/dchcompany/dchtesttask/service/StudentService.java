@@ -2,10 +2,10 @@ package com.dchcompany.dchtesttask.service;
 
 import com.dchcompany.dchtesttask.dto.StudentCreateEditDto;
 import com.dchcompany.dchtesttask.dto.StudentReadDto;
-import com.dchcompany.dchtesttask.entity.Student;
 import com.dchcompany.dchtesttask.mapper.StudentCreateEditMapper;
 import com.dchcompany.dchtesttask.mapper.StudentReadMapper;
 import com.dchcompany.dchtesttask.repository.StudentRepository;
+import com.dchcompany.dchtesttask.service.serviceInterface.IStudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.prepost.PreAuthorize;
